@@ -1,0 +1,40 @@
+service:
+  id: ai-spring-thymeleaf
+
+project:
+  home: /apps/ai/${spring.profiles.active}/full-stack-developer/ai-spring-thymeleaf/
+
+spring:
+    greeting: String MVC, Thymeleaf, Bootstrap, JQuery
+    thymeleaf:
+#      mode: HTML
+      prefix: classpath:/templates/thymeleaf/
+      suffix: .html
+      cache: false
+    profiles:
+      active: local
+
+logging:
+  file: ${project.home}/logs/${service.id}.log
+
+---
+spring:
+  profiles: local
+---
+spring:
+  profiles: dev
+  greeting: String MVC, Thymeleaf, Bootstrap, Jquery
+  thymeleaf:
+    cache: true
+---
+spring:
+  profiles: sit
+  greeting: String MVC, Thymeleaf, Bootstrap, Jquery
+  thymeleaf:
+    cache: true
+---
+spring:
+  profiles: prod
+  greeting: String MVC, Thymeleaf, Bootstrap, Jquery
+  thymeleaf:
+    cache: true
