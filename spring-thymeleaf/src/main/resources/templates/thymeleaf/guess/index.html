@@ -1,0 +1,25 @@
+<!DOCTYPE html>
+<html xmlns:th="http://www.thymeleaf.org"
+      xmlns:layout="http://www.ultraq.net.nz/thymeleaf/layout" xmlns="http://www.w3.org/1999/html"
+      layout:decorator="layout/layout">
+<head>
+    <title th:text="${message}">Task List</title>
+</head>
+<body>
+<!-- /* Content of this page will be decorated by the elements of layout.html (task/layout) */ -->
+<div layout:fragment="content" class="container">
+    <div class="row">
+        <div class="col-md-12">
+            <div class="panel panel-primary">
+                <div class="panel panel-heading">
+                    This is Guess page
+                </div>
+                <div class="panel panel-body">
+                    This is guess page that every can visit
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+</body>
+</html>

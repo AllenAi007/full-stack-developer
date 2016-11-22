@@ -3,32 +3,19 @@
       xmlns:layout="http://www.ultraq.net.nz/thymeleaf/layout"
       layout:decorator="layout/layout">
 <head>
-    <title th:text="${title}">Title</title>
+    <title>Template</title>
+    <meta charset="utf-8"/>
+    <meta http-equiv="X-UA-Compatible" content="IE=edge"/>
+    <meta name="viewport" content="width=device-width, initial-scale=1"/>
     <link rel="stylesheet" th:href="@{/css/bootstrap.min.css}"
           href="../../static/css/bootstrap.min.css"/>
     <link rel="stylesheet" th:href="@{/css/bootstrap.min.css}"
           href="../../static/css/bootstrap.min.css"/>
 </head>
-
 <body>
-
 <div layout:fragment="content" class="container">
-    <div class="row"><h1 th:text="${message}">Default message</h1></div>
-    <div class="row">
-        <div class="col-md-12">
-            <div class="panel panel-primary">
-                <div class="panel-heading">
-                    Panel Header
-                </div>
-                <div class="panel-body">
-                    Panel Body
-                </div>
-            </div>
-        </div>
-
-    </div>
+    put something here....
 </div>
-
 
 </body>
 </html>

@@ -16,6 +16,9 @@ spring:
 
 logging:
   file: ${project.home}/logs/${service.id}.log
+  level:
+    root: INFO
+    org.ai: DEBUG
 
 ---
 spring:

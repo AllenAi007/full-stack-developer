@@ -1,44 +1,90 @@
 <!DOCTYPE html>
 <html xmlns:th="http://www.thymeleaf.org"
-      xmlns:layout="http://www.ultraq.net.nz/thymeleaf/layout" xmlns="http://www.w3.org/1999/html"
+      xmlns:layout="http://www.ultraq.net.nz/thymeleaf/layout"
       layout:decorator="layout/layout">
 <head>
-    <title th:text="${message}">Task List</title>
+    <title>Hello Spring Security</title>
+    <meta charset="utf-8"/>
 </head>
 <body>
 <!-- /* Content of this page will be decorated by the elements of layout.html (task/layout) */ -->
 <div layout:fragment="content" class="container">
+
     <div class="row">
         <div class="col-md-12">
             <div class="panel panel-primary">
                 <div class="panel panel-heading">
-                    Login Form
+                    Home page
                 </div>
                 <div class="panel panel-body">
-                    <form role="form">
-                        <div class="form-group">
-                            <label for="exampleInputEmail1">Email address</label>
-                            <input type="email" class="form-control" id="exampleInputEmail1" placeholder="Enter email"/>
-                        </div>
-                        <div class="form-group">
-                            <label for="exampleInputPassword1">Password</label>
-                            <input type="password" class="form-control" id="exampleInputPassword1"
-                                   placeholder="Password"/>
-                        </div>
-                        <div class="checkbox">
-                            <label>
-                                <input type="checkbox"> Check me out </input>
-                            </label>
-                        </div>
-                        <button type="submit" class="btn btn-default">Submit</button>
-                    </form>
+                    <ul class="list-group">
+                        <li class="list-group-item active">
+                            <b>Introduce to this project</b>
+                        </li>
+                        <li class="list-group-item">Guess page that everyone can visit</li>
+                        <li class="list-group-item">User page that user have USER role</li>
+                        <li class="list-group-item">Admin page that user have ADMIN role</li>
+                    </ul>
                 </div>
+                <!-- Table -->
+                <table class="table">
+                    <thead>
+                    <tr>
+                        <th>User Name</th>
+                        <th>Password</th>
+                        <th>Role</th>
+                    </tr>
+                    </thead>
+                    <tbody>
+                    <tr>
+                        <td>user</td>
+                        <td>password</td>
+                        <td>USER</td>
+                    </tr>
+                    <tr>
+                        <td>admin</td>
+                        <td>password</td>
+                        <td>ADMIN</td>
+                    </tr>
+                    </tbody>
+                </table>
             </div>
         </div>
     </div>
 
-</div>
+    <div class="row">
+        <div class="col-md-12">
+            <div class="panel panel-primary">
+                <div class="panel panel-heading">
+                    <b>Technology</b>
+                </div>
+                <div class="panel panel-body">
+                    <ul class="list-group">
+                        <li class="list-group-item active">
+                            <b>Front-end</b>
+                        </li>
+                        <li class="list-group-item">Bootstrap</li>
+                        <li class="list-group-item">JQuery</li>
+                        <li class="list-group-item">T.B.D......</li>
+                    </ul>
+                    <ul class="list-group">
+                        <li class="list-group-item active">
+                            <b>Back-end</b>
+                        </li>
+                        <li class="list-group-item">Spring Boot</li>
+                        <li class="list-group-item">Spring MVC</li>
+                        <li class="list-group-item">Spring Security</li>
+                        <li class="list-group-item">Thymeleaf</li>
+                        <li class="list-group-item">T.B.D......</li>
+                    </ul>
+                </div>
+            </div>
+        </div>
 
+
+    </div>
+
+</div>
 
 </body>
 </html>

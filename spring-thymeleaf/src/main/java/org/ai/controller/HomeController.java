@@ -1,39 +1,50 @@
 package org.ai.controller;
 
+import org.ai.service.LoginService;
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
+import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.boot.autoconfigure.AutoConfigureOrder;
 import org.springframework.boot.context.properties.ConfigurationProperties;
+import org.springframework.http.MediaType;
+import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
-import org.springframework.web.bind.annotation.PathVariable;
-import org.springframework.web.bind.annotation.RequestMapping;
-import org.springframework.web.bind.annotation.RequestMethod;
-import org.springframework.web.bind.annotation.RestController;
+import org.springframework.web.bind.annotation.*;
 import org.springframework.web.servlet.ModelAndView;
 
 /**
  * Created by hua.ai on 2016/11/19.
  */
-@RestController
-@ConfigurationProperties(prefix = "spring")
+@Controller
 public class HomeController {
+
+    private LoginService loginService;
 
     private final static Logger LOG = LoggerFactory.getLogger(HomeController.class);
 
-    private String greeting;
-
     @RequestMapping("/")
-    public ModelAndView index() {
-        return new ModelAndView("index", "message", greeting);
+    public String root() {
+        return "redirect:/index";
     }
 
-    @RequestMapping("/page1")
-    public ModelAndView page1() {
-        return new ModelAndView("page1", "message", "Page1");
+    @RequestMapping("/index")
+    public String index() {
+        return "index";
     }
 
-
-    public void setGreeting(String greeting) {
-        this.greeting = greeting;
+    @RequestMapping("/login")
+    public String login() {
+        return "login";
     }
 
+    @RequestMapping("/login-error")
+    public String loginError(Model model) {
+        model.addAttribute("loginError", true);
+        return "login";
+    }
+
+    @Autowired
+    public void setLoginService(LoginService loginService) {
+        this.loginService = loginService;
+    }
 }
