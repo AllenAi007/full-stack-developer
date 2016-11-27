@@ -4,6 +4,7 @@ service:
 project:
   home: /apps/ai/${spring.profiles.active}/full-stack-developer/ai-spring-thymeleaf/
 
+
 spring:
     greeting: String MVC, Thymeleaf, Bootstrap, JQuery
     thymeleaf:
@@ -19,10 +20,20 @@ logging:
   level:
     root: INFO
     org.ai: DEBUG
+server:
+  error:
+    path: /error
 
 ---
 spring:
   profiles: local
+  datasource:
+    platform: h2
+    driverClassName: org.h2.Driver
+    # this is default url that spring-boot will load , if you change, those schemal.sql and data.sql in classpath will not work
+    url: jdbc:h2:mem:testdb;DB_CLOSE_DELAY=-1;DB_CLOSE_ON_EXIT=false
+    username: sa
+    password:
 ---
 spring:
   profiles: dev
