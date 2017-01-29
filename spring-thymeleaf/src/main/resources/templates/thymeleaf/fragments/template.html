@@ -3,12 +3,30 @@
       xmlns:layout="http://www.ultraq.net.nz/thymeleaf/layout"
       layout:decorator="layout/layout">
 <head>
-    <title>Template</title>
+    <title>Hello Spring Security</title>
+    <link rel="stylesheet" th:href="@{/css/test1.css}"
+          href="../../static/css/test.css"/>
 </head>
 <body>
+
 <div layout:fragment="content" class="container">
-    put something here....
+    <div class="row">
+        <div class="col-md-12">
+            <div class="panel panel-primary">
+                <div class="panel panel-heading">
+                    <b>This is Guess page</b>
+                </div>
+                <div class="panel panel-body">
+                    This is guess page that every can visit
+                </div>
+            </div>
+        </div>
+    </div>
 </div>
+
+<th:block layout:fragment="javascripts">
+    <script th:src="@{/js/test1.js}" src="../../static/js/test1.js"/>
+</th:block>
 
 </body>
 </html>
