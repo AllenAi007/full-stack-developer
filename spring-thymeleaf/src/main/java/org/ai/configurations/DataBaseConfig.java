@@ -13,10 +13,4 @@ import javax.sql.DataSource;
 //@Configuration
 public class DataBaseConfig {
 
-    @Bean
-    @ConfigurationProperties(prefix = "spring.datasource")
-    public DataSource dataSource() {
-        return new DriverManagerDataSource();
-    }
-
 }
