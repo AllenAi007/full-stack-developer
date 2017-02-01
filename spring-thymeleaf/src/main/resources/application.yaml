@@ -40,6 +40,12 @@ spring:
   greeting: String MVC, Thymeleaf, Bootstrap, Jquery
   thymeleaf:
     cache: true
+  datasource:
+    url: jdbc:mysql://localhost:3306/spring_thymeleaf
+    username: root
+    password: root
+    # Spring Boot can deduce from most of database url
+    driver-class-name: com.mysql.jdbc.Driver
 ---
 spring:
   profiles: sit
