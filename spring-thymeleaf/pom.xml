@@ -23,6 +23,7 @@
         <!--  UI  -->
         <bootstrap.version>3.3.7</bootstrap.version>
         <jquery.version>3.1.1-1</jquery.version>
+        <bootstrap-table.version>1.9.1-1</bootstrap-table.version>
     </properties>
 
     <dependencyManagement>
@@ -100,11 +101,19 @@
             <groupId>org.webjars</groupId>
             <artifactId>bootstrap</artifactId>
             <version>${bootstrap.version}</version>
+            <scope>runtime</scope>
         </dependency>
         <dependency>
             <groupId>org.webjars</groupId>
             <artifactId>jquery</artifactId>
             <version>${jquery.version}</version>
+            <scope>runtime</scope>
+        </dependency>
+        <dependency>
+            <groupId>org.webjars</groupId>
+            <artifactId>bootstrap-table</artifactId>
+            <version>${bootstrap-table.version}</version>
+            <scope>runtime</scope>
         </dependency>
 
     </dependencies>
