@@ -6,11 +6,14 @@ import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.jdbc.core.JdbcTemplate;
+import org.springframework.jdbc.core.PreparedStatementCreator;
 import org.springframework.stereotype.Repository;
 
 import javax.sql.DataSource;
+import java.sql.Connection;
 import java.sql.PreparedStatement;
 import java.sql.ResultSet;
+import java.sql.SQLException;
 import java.util.List;
 
 /**
@@ -62,4 +65,35 @@ public class UserDaoImp implements UserDao {
             return null;
         });
     }
+
+    @Override
+    public void update(User user) {
+        String sql = "update users set password = ? where username = ?";
+        if (LOG.isDebugEnabled()) {
+            LOG.debug("Executing sql {} ", sql);
+            LOG.debug("Parameter password:{}, username:{}", user.getPassword(), user.getUserName());
+        }
+        jdbcTemplate.update(sql, user.getPassword(), user.getUserName());
+    }
+
+    @Override
+    public void delete(String username) {
+        String sql = "delete from users where username = ?";
+        if (LOG.isDebugEnabled()) {
+            LOG.debug("Executing sql {} ", sql);
+            LOG.debug("Parameter username:{}", username);
+        }
+        jdbcTemplate.update(sql, username);
+    }
+
+    @Override
+    public void deleteUserRole(String username) {
+        String sql = "delete from AUTHORITIES where username = ?";
+        if (LOG.isDebugEnabled()) {
+            LOG.debug("Executing sql {} ", sql);
+            LOG.debug("Parameter username:{}", username);
+        }
+        jdbcTemplate.update(sql, username);
+    }
+
 }

@@ -21,4 +21,22 @@ public interface UserDao {
      */
     public User getUserByLoginName(String username);
 
+    /**
+     * Update user
+     * @param user
+     */
+    public void update(User user);
+
+
+    /**
+     * delete the given user
+     * @param username given user name
+     */
+    public void delete(String username);
+
+    /**
+     * delete the user role
+     * @param username
+     */
+    public void deleteUserRole(String username);
 }

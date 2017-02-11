@@ -21,4 +21,19 @@ public interface UserService {
      * @return
      */
     public User getUserByLoginName(String username);
+
+    /**
+     * Update the given user
+     * @param user
+     */
+    public void update(User user);
+
+    /**
+     * delete the given user
+     * 1. delete user roles.
+     * 2. delete user data.
+     * @param username given user name
+     */
+    public void delete(String username);
+
 }

@@ -33,7 +33,7 @@ public class UserController {
 
     @ResponseBody
     @RequestMapping("api/getUsers")
-    public PagingResult<User> getUsers(){
+    public PagingResult<User> getUsers() {
         List<User> users = userService.getUsers();
         PagingResult<User> pagingResult = new PagingResult<>(users);
         pagingResult.setTotal(users.size());
@@ -42,8 +42,25 @@ public class UserController {
 
     @ResponseBody
     @RequestMapping("api/getUserByLoginName")
-    public User getUserByLoginName(@RequestParam String username){
+    public User getUserByLoginName(@RequestParam String username) {
         return userService.getUserByLoginName(username);
+    }
+
+    @ResponseBody
+    @RequestMapping("api/delete")
+    public String delete(@RequestParam String username) {
+        userService.delete(username);
+        return username;
+    }
+
+    @ResponseBody
+    @RequestMapping("api/update")
+    public User update(@RequestParam String username, @RequestParam String password) {
+        User user = new User();
+        user.setUserName(username);
+        user.setPassword(password);
+        userService.update(user);
+        return user;
     }
 
 
